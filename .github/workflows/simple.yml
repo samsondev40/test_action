@@ -11,7 +11,7 @@ on:
       - assigned
 
 jobs:
-  simple-actions:
+  simple-ubuntu:
     runs-on: ubuntu-latest
     steps:
       - name: list files
@@ -31,7 +31,7 @@ jobs:
       - name: list files after Checkout
         run: ls
 
-  running-on-windows:
+  simple-windows:
     runs-on: windows-latest
     steps:
       - name: Run a shell command

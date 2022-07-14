@@ -1,0 +1,12 @@
+name: Schedule_Test
+
+on:
+  schedule:
+    - cron: "50 * * * *"
+
+jobs:
+  schedule-job:
+    runs-on: windows-2019
+    steps:
+      - name: print string every 5 minutes
+        run: echo "5 min string"

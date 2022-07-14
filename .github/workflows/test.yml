@@ -1,19 +1,20 @@
-name: Test yaml files
+name: Test dependency
 
 on:
   workflow_run:
-    workflows: [Testing actions]
+    workflows: ["Testing actions"]
     types:
-      - completed
+      - requested
+    # - completed
 
 jobs:
-  without-need:
+  independent:
     runs-on: windows-latest
     steps:
       - run: echo "before needs"
-  test-windows:
+  dependent:
     runs-on: windows-latest
-    needs: without-need
+    needs: independent
     steps:
       - name: Checkout
         uses: actions/checkout@v2
