@@ -5,6 +5,10 @@ on:
     branches: [main]
 
 jobs:
+  without-need:
+    runs-on: windows-latest
+    steps:
+      - run: echo "before needs"
   test-windows:
     runs-on: windows-latest
     needs: running-on-windows
