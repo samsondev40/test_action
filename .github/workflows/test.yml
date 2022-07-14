@@ -1,8 +1,10 @@
 name: Test yaml files
 
 on:
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: [Testing actions]
+    types:
+      - completed
 
 jobs:
   without-need:
@@ -11,7 +13,7 @@ jobs:
       - run: echo "before needs"
   test-windows:
     runs-on: windows-latest
-    needs: running-on-windows
+    needs: without-need
     steps:
       - name: Checkout
         uses: actions/checkout@v2
