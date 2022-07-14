@@ -1,24 +1,37 @@
 name: Testing actions
 
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types:
+      - opened
+      - closed
+      - reopened
+      - assigned
 
 jobs:
-  checking-the-action:
+  simple-actions:
     runs-on: ubuntu-latest
-
     steps:
       - name: Echo a string
         run: echo "Hello World"
-
       - name: multiline
         run: |
           echo "line 1"
           echo "Line 2"
-
       - name: no newline
         run: >
-          echo "Line 3"
-          echo "line 4"
-
+          echo "Line 3
+          and line 4"
       - name: Checkout to Vm
         uses: actions/checkout@v1
+
+  running-on-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Run a shell command
+        run: pwd
+        shell: bash
+      - name: powershell command
+        run: get-location
