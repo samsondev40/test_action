@@ -2,7 +2,8 @@ name: Schedule_Test
 
 on:
   schedule:
-    - cron: "1 * * * *"
+    - cron: "7/5 * * * *"
+  pull_request:
 
 jobs:
   schedule-job:
