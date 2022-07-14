@@ -1,0 +1,24 @@
+name: Testing actions
+
+on: [push]
+
+jobs:
+  checking-the-action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo a string
+        run: echo "Hello World"
+
+      - name: multiline
+        run: |
+          echo "line 1"
+          echo "Line 2"
+
+      - name: no newline
+        run: >
+          echo "Line 3"
+          echo "line 4"
+
+      - name: Checkout to Vm
+        uses: actions/checkout@v1
